@@ -1,4 +1,4 @@
-import { useProductActions } from '@lib/context/product-context'
+/*import { useProductActions } from '@lib/context/product-context'
 import Product from '@types/medusa'
 import Button from '@modules/common/components/button'
 import { useRouter } from 'next/navigation'
@@ -9,7 +9,7 @@ type ProductButtonProps = {
 }
 
 const ProductButton: React.FC<ProductButtonProps> = ({ product, stock }) => {
-  
+    //const { updateOptions, addToCart, options, inStock, variant } = useProductActions()
     const { push } = useRouter()
     
     const variantCount = product.variants.length
@@ -37,3 +37,4 @@ const ProductButton: React.FC<ProductButtonProps> = ({ product, stock }) => {
 }
 
 export default ProductButton
+*/
