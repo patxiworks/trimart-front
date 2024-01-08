@@ -42,6 +42,8 @@ const Hamburger: React.FC<HamburgerProps> = ({ setOpen, scrollState, label, icon
     screen: [_, setScreen],
   } = useMobileMenu()
 
+  const setScreenMain = () => setScreen("main")
+  const setScreenSearch = () => setScreen("search")
   const color = scrollState ? 'span-white' : ''
 
   return (
@@ -49,10 +51,16 @@ const Hamburger: React.FC<HamburgerProps> = ({ setOpen, scrollState, label, icon
       <span className="sr-only">Open main menu</span>
       { 
       iconType === 'search' 
-      ? <Search className="span-gray-500" size={20} />
-      : <Lines color={color} /> 
+      ? <>
+          <Search className="span-gray-500" size={20} />
+          <div className={classes} onClick={setScreenSearch}><span>{label}</span></div>
+        </>
+      : <>
+          <Lines color={color} /> 
+          <div className={classes} onClick={setScreenMain}><span>{label}</span></div>
+        </>
       }
-      <div className={classes} onClick={()=>setScreen(screen)}><span>{label}</span></div>
+      
     </div>
   )
 }

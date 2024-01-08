@@ -9,8 +9,7 @@ type ProductButtonProps = {
 }
 
 const ProductButton: React.FC<ProductButtonProps> = ({ product, stock }) => {
-  const { updateOptions, addToCart, options, inStock, variant } =
-    useProductActions()
+  
     const { push } = useRouter()
     
     const variantCount = product.variants.length
@@ -18,7 +17,7 @@ const ProductButton: React.FC<ProductButtonProps> = ({ product, stock }) => {
 
   return (
     <div>
-        {inStock && stock
+        {stock
         ? <Button
             variant="minimal"
             className="px-1 rounded-sm border-none bg-green-600 hover:bg-green-700 text-white"

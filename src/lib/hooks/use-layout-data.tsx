@@ -78,11 +78,18 @@ const fetchFeaturedProducts = async (
         return acc
       }, variants[0])
 
+      const totalStock = variants && variants.reduce((acc: any, curr) => {
+        return acc + curr?.inventory_quantity
+      }, 0)
+
       return {
         id: p.id!,
         title: p.title!,
         handle: p.handle!,
         thumbnail: p.thumbnail!,
+        variantCount: variants.length,
+        stock: totalStock,
+        product: p,
         price: cheapestVariant
           ? {
               calculated_price: formatAmount({

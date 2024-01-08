@@ -4,7 +4,9 @@ import { ProductPreviewType } from "types/global"
 import Thumbnail from "../thumbnail"
 import { Text } from "@medusajs/ui"
 import { ProductProvider } from '@lib/context/product-context'
-import ProductButton from './button'
+//import ProductButton from './button'
+import Button from '@modules/common/components/button'
+import { useRouter } from 'next/navigation'
 
 const ProductPreview = ({
   title,
@@ -17,6 +19,8 @@ const ProductPreview = ({
   isFeatured,
 }: ProductPreviewType) => {
   const priceInfo = price && price?.price_type
+
+  const { push } = useRouter()
 
   return (
     <Link href={`/products/${handle}`} className="group">
@@ -48,12 +52,24 @@ const ProductPreview = ({
               </div>
             )}
             {product
-            ? <ProductProvider product={product}>
-                <div>
-                  <ProductButton product={product} stock={stock} />
+              ? <div>
+                {stock
+                ? <Button
+                    variant="minimal"
+                    className="px-1 rounded-sm border-none bg-green-600 hover:bg-green-700 text-white"
+                    onClick={() => push(`/products/${handle}`)}
+                >
+                    {stock} available
+                </Button>
+                : <Button 
+                    variant="minimal"
+                    className="px-1 rounded-sm border-none bg-gray-400 text-black hover:bg-gray-400 cursor-arrow"
+                >
+                    Out of stock
+                </Button>
+                }
                 </div>
-              </ProductProvider>
-            : ''
+              : ''
             }
           </div>
         </div>
