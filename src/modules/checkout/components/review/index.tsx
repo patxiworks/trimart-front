@@ -18,8 +18,8 @@ const Review = () => {
   const editingOtherSteps = isEditAddresses || isEditShipping || isEditPayment
 
   return (
-    <div className="bg-white px-4 small:px-8">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div className="bg-white px-4 pb-6 small:px-8 small:pl-0">
+      {/*<div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
@@ -31,7 +31,7 @@ const Review = () => {
         >
           Review
         </Heading>
-      </div>
+      </div>*/}
       {!editingOtherSteps && previousStepsCompleted && (
         <>
           <div className="flex items-start gap-x-1 w-full mb-6">
@@ -39,12 +39,11 @@ const Review = () => {
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
                 By clicking the Place Order button, you confirm that you have
                 read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+                Returns Policy and acknowledge that you have read our Privacy Policy.
               </Text>
             </div>
           </div>
-          <PaymentButton paymentSession={cart?.payment_session} />
+          <div className="flex justify-center small:justify-start"><PaymentButton paymentSession={cart?.payment_session} /></div>
         </>
       )}
     </div>

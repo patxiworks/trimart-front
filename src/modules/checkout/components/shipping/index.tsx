@@ -10,6 +10,7 @@ import { ErrorMessage } from "@hookform/error-message"
 import { formatAmount, useCart, useCartShippingOptions } from "medusa-react"
 import { useEffect, useMemo, useState } from "react"
 import { Cart } from "@medusajs/medusa"
+import { textXlSemi } from '@modules/design/custom-classes'
 
 type ShippingOption = {
   value?: string
@@ -114,21 +115,21 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
   }, [shipping_options, cart])
 
   return (
-    <div className="bg-white p-4 small:px-8">
+    <div className="small:bg-primary-light p-6 pt-4 small:border border-primary-deep rounded">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            `${textXlSemi} flex flex-row text-3xl-regular gap-x-2 items-baseline`,
             {
               "opacity-50 pointer-events-none select-none":
                 editingOtherSteps && !shippingReady,
             }
           )}
         >
-          Delivery
+          Delivery method
           {!isOpen && currentShippingOption && shippingReady && (
-            <CheckCircleSolid />
+            <CheckCircleSolid color="green" />
           )}
         </Heading>
         {!isOpen && addressReady && (
@@ -153,7 +154,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
                       key={option.value}
                       value={option.value}
                       className={clx(
-                        "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+                        "flex items-center justify-between text-small-regular cursor-pointer py-4 bg-white border border-gray-400 rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
                         {
                           "border-ui-border-interactive":
                             option.value === shippingOptionId,
@@ -204,9 +205,9 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
           <div className="text-small-regular">
             {cart && shippingReady && (
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                {/*<Text className="txt-medium-plus text-ui-fg-base mb-1">
                   Method
-                </Text>
+                </Text>*/}
                 <Text className="txt-medium text-ui-fg-subtle">
                   {cart.shipping_methods[0].shipping_option.name} (
                   {formatAmount({
@@ -222,7 +223,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
+      <Divider className="mt-8 small:mt-0 small:hidden" />
     </div>
   )
 }

@@ -76,7 +76,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
   return (
     <>
     <RefinementNav refinementList={params} setRefinementList={setParams} />
-    <div className="content-container py-6">
+    <div className="px-6 py-6">
       <div className={`flex flex-row ${textLargeSemi} text-lg font-bold mb-2 gap-4`}>
         {parents &&
           parents.map((parent) => (
@@ -108,7 +108,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
           </ul>
         </div>
       )}
-      <ul className="grid grid-cols-2 small:grid-cols-5 medium:grid-cols-4 gap-x-6 gap-y-8">
+      <ul className="grid grid-cols-2 small:grid-cols-5 medium:grid-cols-5 gap-x-6 gap-y-8">
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />

@@ -3,11 +3,11 @@ import SkeletonProductPreview from "@modules/skeletons/components/skeleton-produ
 
 const SkeletonCollectionPage = () => {
   return (
-    <div className="content-container py-10">
+    <div className="p-6">
       <div className="animate-pulse mb-8">
         <div className="w-96 h-20 bg-gray-100"></div>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-5 medium:grid-cols-4 gap-x-6 gap-y-8 flex-1">
+      <ul className="grid grid-cols-2 small:grid-cols-5 medium:grid-cols-5 gap-x-6 gap-y-8 flex-1">
         {repeat(8).map((index) => (
           <li key={index}>
             <SkeletonProductPreview />

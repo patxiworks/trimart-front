@@ -15,7 +15,7 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      <div className="w-full grid grid-cols-1 gap-y-8">
+      <div className="w-full grid grid-cols-1 gap-y-2 small:gap-y-8 ">
         <div>
           <Addresses />
         </div>

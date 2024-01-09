@@ -5,6 +5,7 @@ import Spinner from "@modules/common/icons/spinner"
 import BillingAddress from "../billing_address"
 import ShippingAddress from "../shipping-address"
 import Divider from "@modules/common/components/divider"
+import { textXlSemi } from '@modules/design/custom-classes'
 
 const Addresses = () => {
   const {
@@ -24,14 +25,14 @@ const Addresses = () => {
   }
 
   return (
-    <div className="bg-white px-4 small:px-8">
+    <div className="small:bg-primary-light p-6 pt-4 small:border border-primary-deep rounded">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
-          className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
+          className={`${textXlSemi} flex flex-row text-3xl-regular gap-x-2 items-baseline`}
         >
-          Address
-          {!isOpen && <CheckCircleSolid />}
+          Delivery address
+          {!isOpen && <CheckCircleSolid color="green" />}
         </Heading>
         {!isOpen && (
           <Text>
@@ -49,7 +50,7 @@ const Addresses = () => {
             <div>
               <Heading
                 level="h2"
-                className="text-3xl-regular gap-x-4 pb-6 pt-8"
+                className={`${textXlSemi} text-3xl-regular gap-x-4 pb-6 pt-8`}
               >
                 Billing address
               </Heading>
@@ -144,7 +145,7 @@ const Addresses = () => {
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
+      <Divider className="mt-8 small:mt-0 small:hidden" />
     </div>
   )
 }

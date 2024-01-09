@@ -13,6 +13,7 @@ import Ideal from "@modules/common/icons/ideal"
 import Bancontact from "@modules/common/icons/bancontact"
 import { useElements } from "@stripe/react-stripe-js"
 import { useState } from "react"
+import { textXlSemi } from '@modules/design/custom-classes'
 
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
@@ -119,12 +120,12 @@ const Payment = () => {
   }
 
   return (
-    <div className="bg-white px-4 small:px-8">
+    <div className="small:bg-primary-light p-6 pt-4 small:border border-primary-deep rounded">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            `${textXlSemi} flex flex-row text-3xl-regular gap-x-2 items-baseline`,
             {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && !paymentReady,
@@ -148,6 +149,7 @@ const Payment = () => {
             <RadioGroup
               value={cart.payment_session?.provider_id || ""}
               onChange={(value: string) => handleChange(value)}
+              className={"bg-white"}
             >
               {cart.payment_sessions
                 .sort((a, b) => {
@@ -198,7 +200,7 @@ const Payment = () => {
               }
               isLoading={settingPaymentSession}
             >
-              Continue to review
+              Continue
             </Button>
           </div>
         ) : (
@@ -247,7 +249,7 @@ const Payment = () => {
           )}
         </div>
       </div>
-      <Divider className="mt-8" />
+      <Divider className="mt-8 small:mt-0 small:hidden" />
     </div>
   )
 }
