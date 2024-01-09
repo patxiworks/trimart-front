@@ -8,6 +8,7 @@ import CartItemSelect from "@modules/cart/components/cart-item-select"
 import Trash from "@modules/common/icons/trash"
 import Thumbnail from "@modules/products/components/thumbnail"
 import Link from "next/link"
+import { Quantifier } from "../quantifier"
 
 type ItemProps = {
   item: Omit<LineItem, "beforeInsert">
@@ -20,8 +21,8 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   const { handle } = item.variant.product
 
   return (
-    <Table.Row className="w-full">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row className="even:bg-white odd:bg-slate-50 border-b-primary-normals w-full [&_td:last-child]:pr-3 [&_td:first-child]:pl-3 small:[&_td:last-child]:pr-6 small:[&_td:first-child]:pl-6 hover:bg-primary-light">
+      <Table.Cell className="small:pl-2 p-4 w-24">
         <Link
           href={`/products/${handle}`}
           className={clx("flex", {
@@ -41,13 +42,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       {type === "full" && (
         <Table.Cell>
           <div className="flex gap-2">
-            <button
-              className="flex items-center gap-x-"
-              onClick={() => deleteItem(item.id)}
-            >
-              <Trash size={18} />
-            </button>
-            <CartItemSelect
+            {/*<CartItemSelect
               value={item.quantity}
               onChange={(value) =>
                 updateItem({
@@ -75,7 +70,23 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
                     </option>
                   )
                 })}
-            </CartItemSelect>
+            </CartItemSelect>*/}
+            <Quantifier 
+              quantity={item.quantity}
+              max={item.variant.inventory_quantity}
+              updateValue={(value: any) => {
+                updateItem({
+                  lineId: item.id,
+                  quantity: parseInt(value),
+                })}
+              } 
+            />
+            {/*<button
+              className="flex items-center gap-x-"
+              onClick={() => deleteItem(item.id)}
+            >
+              <Trash size={18} />
+            </button>*/}
           </div>
         </Table.Cell>
       )}
@@ -86,7 +97,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
         </Table.Cell>
       )}
 
-      <Table.Cell className="!pr-0">
+      <Table.Cell className="small:pr-2">
         <span
           className={clx("!pr-0", {
             "flex flex-col items-end h-full justify-center": type === "preview",

@@ -2,6 +2,7 @@ import { LineItem, Region } from "@medusajs/medusa"
 import { Heading, Table } from "@medusajs/ui"
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import { textXlSemi } from '@modules/design/custom-classes'
 
 type ItemsTemplateProps = {
   items?: Omit<LineItem, "beforeInsert">[]
@@ -10,20 +11,21 @@ type ItemsTemplateProps = {
 
 const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
-    <div>
-      <div className="pb-3 flex items-center">
-        <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
-      </div>
-      <Table>
+    <>
+    <div className="flex justify-center items-center py-6">
+      <Heading className={`${textXlSemi}`}>Cart</Heading>
+    </div>
+    <div className="py-6 border-t border-primary-normal">
+      <Table className="">
         <Table.Header className="border-t-0">
-          <Table.Row className="text-ui-fg-subtle txt-medium-plus">
-            <Table.HeaderCell className="!pl-0">Item</Table.HeaderCell>
+          <Table.Row className="text-ui-fg-subtle txt-medium-plus [&_th:last-child]:pr-3 [&_th:first-child]:pl-3 small:[&_th:last-child]:pr-6 small:[&_th:first-child]:pl-6">
+            <Table.HeaderCell className="small:pl-3">Item</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
             <Table.HeaderCell>Quantity</Table.HeaderCell>
             <Table.HeaderCell className="hidden small:table-cell">
               Price
             </Table.HeaderCell>
-            <Table.HeaderCell className="!pr-0 text-right">
+            <Table.HeaderCell className="small:pr-3 text-right">
               Total
             </Table.HeaderCell>
           </Table.Row>
@@ -43,6 +45,7 @@ const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
         </Table.Body>
       </Table>
     </div>
+    </>
   )
 }
 

@@ -1,11 +1,13 @@
 import SkeletonButton from "@modules/skeletons/components/skeleton-button"
 import SkeletonCartTotals from "@modules/skeletons/components/skeleton-cart-totals"
+import SkeletonCodeForm from "../skeleton-code-form"
 
 const SkeletonOrderSummary = () => {
   return (
-    <div className="grid-cols-1">
-      <SkeletonCartTotals header={false} />
+    <div className="border small:p-6 grid-cols-1">
+      <SkeletonCodeForm />
       <div className="mt-4">
+        <SkeletonCartTotals header={false} />
         <SkeletonButton />
       </div>
     </div>

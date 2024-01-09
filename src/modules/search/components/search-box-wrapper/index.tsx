@@ -34,7 +34,7 @@ type SearchBoxProps = {
 
 const SearchBoxWrapper = ({
   children,
-  placeholder = "Search products...",
+  placeholder = "Search for products...",
   ...rest
 }: SearchBoxProps) => {
   const { query, refine, isSearchStalled } = useSearchBox(rest)

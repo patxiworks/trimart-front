@@ -2,8 +2,8 @@ import { Table } from "@medusajs/ui"
 
 const SkeletonCartItem = () => {
   return (
-    <Table.Row className="w-full m-4">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row className="w-full m-4 [&_td:last-child]:pr-3 [&_td:first-child]:pl-3 small:[&_td:last-child]:pr-6 small:[&_td:first-child]:pl-6">
+      <Table.Cell className="small:pl-3 p-4 w-24">
         <div className="flex w-24 h-24 p-4 bg-gray-200 rounded-large animate-pulse" />
       </Table.Cell>
       <Table.Cell className="text-left">
@@ -14,8 +14,7 @@ const SkeletonCartItem = () => {
       </Table.Cell>
       <Table.Cell>
         <div className="flex gap-2 items-center">
-          <div className="w-6 h-8 bg-gray-200 animate-pulse" />
-          <div className="w-14 h-10 bg-gray-200 animate-pulse" />
+          <div className="w-20 h-6 bg-gray-200 animate-pulse" />
         </div>
       </Table.Cell>
       <Table.Cell>
@@ -23,7 +22,7 @@ const SkeletonCartItem = () => {
           <div className="w-12 h-6 bg-gray-200 animate-pulse" />
         </div>
       </Table.Cell>
-      <Table.Cell className="!pr-0 text-right">
+      <Table.Cell className="small:pr-3 text-right">
         <div className="flex gap-2 justify-end">
           <div className="w-12 h-6 bg-gray-200 animate-pulse" />
         </div>

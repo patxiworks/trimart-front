@@ -1,5 +1,5 @@
 export const contentContainer =
-  'web:small:max-w-[1440px] web:small:px-8 mx-auto w-full'
+  'small:max-w-[1440px] small:px-8 mx-auto w-full'
 
 export const contrastBtn =
   'px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in'

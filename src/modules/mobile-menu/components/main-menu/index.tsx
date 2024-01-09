@@ -2,7 +2,7 @@ import { useMobileMenu } from "@lib/context/mobile-menu-context"
 import { useStore } from "@lib/context/store-context"
 import useCountryOptions from "@lib/hooks/use-country-options"
 import ChevronDown from "@modules/common/icons/chevron-down"
-import { MagnifyingGlassMini, XMark as X } from "@medusajs/icons"
+import { XMark as X } from "@medusajs/icons"
 import { useCollections, useProductCategories, useMeCustomer } from "medusa-react"
 import Link from "next/link"
 import ReactCountryFlag from "react-country-flag"
@@ -38,11 +38,11 @@ const MainMenu = () => {
         </div>*/}
 
         <Heading className="txt-5xl font-bold w-5/6 p-5 pl-4 border-r border-primary-deep">
-        <span className="txt-5xl text-base font-bold text-primary-deeper">Product Categories</span>
+          <span className="txt-5xl text-base font-bold text-primary-deeper">Product Categories</span>
         </Heading>
 
         <div className="flex-1 basis-0 flex justify-center">
-        <button onClick={close} className='justify-center items-center text-primary-deeper outline-none'>
+          <button onClick={close} className='justify-center items-center text-primary-deeper outline-none'>
             <X onClick={close} className="text-primary-deeper" />
           </button>
         </div>

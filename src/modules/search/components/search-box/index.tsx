@@ -54,7 +54,7 @@ const ControlledSearchBox = ({
             type="search"
             value={value}
             onChange={onChange}
-            className="txt-compact-large h-6 placeholder:text-ui-fg-on-color placeholder:transition-colors focus:outline-none flex-1 bg-transparent "
+            className="txt-compact-large h-6 placeholder:text-primary-deep placeholder:transition-colors focus:outline-none flex-1 bg-transparent "
           />
           {value && (
             <button
@@ -78,7 +78,7 @@ const SearchBox = ({ close }: { close: () => void }) => {
       {(props) => {
         return (
           <>
-            <ControlledSearchBox close={close} {...props} />
+            <ControlledSearchBox close={close} {...props} placeholder={props.placeholder} />
           </>
         )
       }}
