@@ -10,6 +10,8 @@ const CategoriesNav = () => {
   const { product_categories } = useProductCategories()
 
   return (
+    <>
+    {product_categories ?
     <div className="flex flex-col gap-y-2 hidden small:flex">
       <span className="text-base-semi font-bold">Categories</span>
       <ul
@@ -55,6 +57,8 @@ const CategoriesNav = () => {
           })}
       </ul>
     </div>
+    : ''}
+    </>
   )
 }
 
@@ -69,7 +73,7 @@ const FooterNav = () => {
           {/*<Link href="/" className="text-xl-semi uppercase">Trimart</Link>*/}
         </div>
         <div className="text-small-regular grid grid-cols-2 small:grid-cols-3 small:gap-x-16 gap-x-8 gap-y-8">
-          <div className="flex flex-col gap-y-2 border-r">
+          <div className="flex flex-col gap-y-2 border-r pr-8">
             <span className="text-base-semi font-bold">Trimart</span>
             <ul className="grid grid-cols-1 gap-y-2 text-sm">
               <li className="hover:text-primary-deep">
@@ -101,7 +105,8 @@ const FooterNav = () => {
               </li>
             </ul>
           </div>
-          <div className="flex flex-col gap-y-2 border-r">
+          {collections ?
+          <div className="flex flex-col gap-y-2 border-r pr-8">
             <span className="text-base-semi font-bold">Collections</span>
             <ul
               className={clsx("grid grid-cols-1 gap-y-2 text-sm", {
@@ -117,6 +122,7 @@ const FooterNav = () => {
               ))}
             </ul>
           </div>
+          : ''}
           <CategoriesNav />
         </div>
         </div>
