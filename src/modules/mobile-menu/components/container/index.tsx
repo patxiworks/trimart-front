@@ -33,7 +33,7 @@ const Container = ({ children }: ContainerProps) => {
           leaveTo="-translate-x-full"
         >
           <div className="trans absolute inset-0 overflow-hidden small:w-3/6 small:border-r-1 border-primary-deeper">
-            <div className="right-left pointer-events-none fixed inset-y-0 flex max-w-full">
+            <div className="right-left pointer-events-none absolute inset-y-0 flex max-w-full">
               <div className="pointer-events-auto relative flex w-screen flex-col overflow-y-auto bg-white text-gray-900">
                 {children}
               </div>
