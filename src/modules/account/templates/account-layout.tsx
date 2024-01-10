@@ -22,15 +22,15 @@ const AccountLayout: React.FC = ({ children }) => {
   }
 
   return (
-    <div className="flex-1 small:py-12">
-      <div className="flex-1 h-full max-w-5xl mx-auto bg-white flex flex-col">
-        <div className="grid grid-cols-1 small:grid-cols-[240px_1fr] px-8 py-12">
+    <div className="small:py-12 bg-primary-light ios:bg-white flex-1">
+      <div className="mx-auto small:w-5/6 flex h-full min-w-5xl flex-1 flex-col bg-white small:border border-primary-deep rounded small:shadow-lg">
+        <div className="small:grid-cols-[240px_1fr] small:px-8 small:py-12 grid grid-cols-1 py-6 px-4">
           <div>
             <AccountNav />
           </div>
           <div className="flex-1">{children}</div>
         </div>
-        <div className="flex flex-col small:flex-row items-end justify-between small:border-t border-gray-200 px-8 py-12 gap-x-8">
+        <div className="flex flex-col small:flex-row items-end justify-between small:border-t border-gray-200 px-6 py-12 gap-x-8">
           <div>
             <h3 className="text-xl-semi mb-4">Got questions?</h3>
             <span className="text-small-regular">
@@ -39,7 +39,7 @@ const AccountLayout: React.FC = ({ children }) => {
             </span>
           </div>
           <div>
-            <UnderlineLink href="/customer-service">
+            <UnderlineLink href="/#">
               Customer Service
             </UnderlineLink>
           </div>

@@ -16,7 +16,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
   return (
     <div>
       <div className="small:hidden">
-        <div className="text-xl-semi mb-4 px-8">
+        <div className="text-xl-semi mb-4 px-4">
           Hello {customer?.first_name}
         </div>
         <div className="text-base-regular">
@@ -24,7 +24,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
             <li>
               <Link
                 href="/account/profile"
-                className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                className="flex items-center justify-between py-4 border-b border-gray-200 px-4"
               >
                 <>
                   <div className="flex items-center gap-x-2">
@@ -38,7 +38,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
             <li>
               <Link
                 href="/account/addresses"
-                className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                className="flex items-center justify-between py-4 border-b border-gray-200 px-4"
               >
                 <>
                   <div className="flex items-center gap-x-2">
@@ -52,7 +52,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
             <li>
               <Link
                 href="/account/orders"
-                className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                className="flex items-center justify-between py-4 border-b border-gray-200 px-4"
               >
                 <>
                   <div className="flex items-center gap-x-2">

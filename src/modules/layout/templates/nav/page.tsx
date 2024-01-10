@@ -26,12 +26,12 @@ const PageNav = ({title}: any) => {
               </Link>
           </div>
 
-          <div className={`flex h-full flex-1 basis-0 items-center justify-end gap-x-4`}>
+          <div className={`flex h-full flex-1 basis-0 items-center justify-end gap-x-4 text-base`}>
             <CartDropdown />
             <div className="small:flex hidden text-primary-deeper text-xl">|</div>
             <div className="small:flex hidden h-full items-center gap-x-6">
               {/*{process.env.FEATURE_SEARCH_ENABLED && <DesktopSearchModal />}*/}
-              <Link href="/account"><div className="flex flex-row gap-2"><User color="white" />Account</div></Link>
+              <Link href="/account"><div className="flex flex-row gap-2 hover:text-primary-normal"><User color="white" />Account</div></Link>
             </div>
             
           </div>

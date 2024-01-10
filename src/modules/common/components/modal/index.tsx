@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> & {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md  h-screen" />
+          <div className="fixed inset-0 bg-gray-700 bg-opacity-75 backdrop-blur-sm h-screen" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-hidden">
@@ -53,7 +53,8 @@ const Modal: React.FC<ModalProps> & {
             >
               <Dialog.Panel
                 className={clsx(
-                  "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
+                  //"flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
+                  "h-full max-h-[65vh] w-full transform overflow-y-scroll bg-white p-8 text-left align-middle shadow-xl transition-all rounded",
                   {
                     "max-w-md": size === "small",
                     "max-w-xl": size === "medium",

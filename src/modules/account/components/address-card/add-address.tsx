@@ -19,7 +19,7 @@ type FormValues = {
   province?: string
   address_1: string
   address_2?: string
-  phone?: string
+  phone: string
   company?: string
 }
 
@@ -59,14 +59,14 @@ const AddAddress: React.FC = () => {
     const payload = {
       first_name: data.first_name,
       last_name: data.last_name,
-      company: data.company || "",
+      company: data.company || '',
       address_1: data.address_1,
-      address_2: data.address_2 || "",
+      address_2: data.address_2 || '',
       city: data.city,
       country_code: data.country_code,
-      province: data.province || "",
-      postal_code: data.postal_code,
-      phone: data.phone || "",
+      province: data.province || '',
+      postal_code: data.postal_code || '',
+      phone: data.phone,
       metadata: {},
     }
 
@@ -130,7 +130,7 @@ const AddAddress: React.FC = () => {
               autoComplete="address-line1"
             />
             <Input
-              label="Apartment, suite, etc."
+              label="Local government area"
               {...register("address_2")}
               errors={errors}
               autoComplete="address-line2"
@@ -141,7 +141,6 @@ const AddAddress: React.FC = () => {
                 {...register("postal_code", {
                   required: "Postal code is required",
                 })}
-                required
                 errors={errors}
                 autoComplete="postal-code"
               />
@@ -156,7 +155,7 @@ const AddAddress: React.FC = () => {
               />
             </div>
             <Input
-              label="Province / State"
+              label="State"
               {...register("province")}
               errors={errors}
               autoComplete="address-level1"
@@ -167,8 +166,11 @@ const AddAddress: React.FC = () => {
             />
             <Input
               label="Phone"
-              {...register("phone")}
+              {...register("phone", {
+                required: "Phone number is required",
+              })}
               errors={errors}
+              required
               autoComplete="phone"
             />
           </div>

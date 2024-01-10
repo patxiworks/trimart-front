@@ -26,31 +26,35 @@ const AccountNav = () => {
       <div className="hidden small:block">
         <div>
           <div className="py-4">
-            <h3 className="text-base-semi">Account</h3>
+            {/*<h3 className="text-base-semi">Account</h3>*/}
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
-              <li>
+              <li className="flex flex-row items-center">
+                <ChevronDown className="-rotate-90 transform" />
                 <AccountNavLink href="/account" route={route!}>
                   Overview
                 </AccountNavLink>
               </li>
-              <li>
+              <li className="flex flex-row items-center">
+                <ChevronDown className="-rotate-90 transform" />
                 <AccountNavLink href="/account/profile" route={route!}>
                   Profile
                 </AccountNavLink>
               </li>
-              <li>
+              <li className="flex flex-row items-center">
+                <ChevronDown className="-rotate-90 transform" />
                 <AccountNavLink href="/account/addresses" route={route!}>
                   Addresses
                 </AccountNavLink>
               </li>
-              <li>
+              <li className="flex flex-row items-center">
+                <ChevronDown className="-rotate-90 transform" />
                 <AccountNavLink href="/account/orders" route={route!}>
                   Orders
                 </AccountNavLink>
               </li>
-              <li className="text-grey-700">
+              <li className="text-grey-700 mt-12">
                 <button type="button" onClick={handleLogout}>
                   Log out
                 </button>

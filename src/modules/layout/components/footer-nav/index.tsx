@@ -6,9 +6,60 @@ import { Text } from "@medusajs/ui"
 import Link from "next/link"
 import MedusaCTA from "../medusa-cta"
 
+const CategoriesNav = () => {
+  const { product_categories } = useProductCategories()
+
+  return (
+    <div className="flex flex-col gap-y-2 hidden small:flex">
+      <span className="text-base-semi font-bold">Categories</span>
+      <ul
+        className={clsx("grid grid-cols-1 gap-y-2 text-sm")}
+      >
+        {product_categories?.slice(0, 6).map((c) => {
+            if (c.parent_category) {
+              return
+            }
+
+            const children =
+              c.category_children?.map((child) => ({
+                name: child.name,
+                handle: child.handle,
+                id: child.id,
+              })) || null
+
+            return (
+              <li
+                className="hover:text-primary-deep"
+                key={c.id}
+              >
+                <Link href={`/store/${c.handle}`}>
+                  {c.name}
+                </Link>
+                {children && (
+                  <ul className="grid grid-cols-1 ml-3 gap-2">
+                    {children &&
+                      children.map((child) => (
+                        <li key={child.id}>
+                          <Link
+                            className="hover:text-ui-fg-base"
+                            href={`/store/${child.handle}`}
+                          >
+                            {child.name}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </li>
+            )
+          })}
+      </ul>
+    </div>
+  )
+}
+
 const FooterNav = () => {
   const { collections } = useCollections()
-  const { product_categories } = useProductCategories()
 
   return (
     <div className="flex flex-col gap-y-8 pt-12 pb-8 px-6 border-t border-gray-300">
@@ -17,7 +68,7 @@ const FooterNav = () => {
         <div>
           {/*<Link href="/" className="text-xl-semi uppercase">Trimart</Link>*/}
         </div>
-        <div className="text-small-regular grid grid-cols-3 gap-x-16">
+        <div className="text-small-regular grid grid-cols-2 small:grid-cols-3 small:gap-x-16 gap-x-8 gap-y-8">
           <div className="flex flex-col gap-y-2 border-r">
             <span className="text-base-semi font-bold">Trimart</span>
             <ul className="grid grid-cols-1 gap-y-2 text-sm">
@@ -66,51 +117,7 @@ const FooterNav = () => {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col gap-y-2">
-            <span className="text-base-semi font-bold">Categories</span>
-            <ul
-              className={clsx("grid grid-cols-1 gap-y-2 text-sm")}
-            >
-              {product_categories?.slice(0, 6).map((c) => {
-                  if (c.parent_category) {
-                    return
-                  }
-
-                  const children =
-                    c.category_children?.map((child) => ({
-                      name: child.name,
-                      handle: child.handle,
-                      id: child.id,
-                    })) || null
-
-                  return (
-                    <li
-                      className="hover:text-primary-deep"
-                      key={c.id}
-                    >
-                      <Link href={`/store/${c.handle}`}>
-                        {c.name}
-                      </Link>
-                      {children && (
-                        <ul className="grid grid-cols-1 ml-3 gap-2">
-                          {children &&
-                            children.map((child) => (
-                              <li key={child.id}>
-                                <Link
-                                  className="hover:text-ui-fg-base"
-                                  href={`/store/${child.handle}`}
-                                >
-                                  {child.name}
-                                </Link>
-                              </li>
-                            ))}
-                        </ul>
-                      )}
-                    </li>
-                  )
-                })}
-            </ul>
-          </div>
+          <CategoriesNav />
         </div>
         </div>
         <div className="text-sm">

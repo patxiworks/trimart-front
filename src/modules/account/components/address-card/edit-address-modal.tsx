@@ -65,14 +65,14 @@ const EditAddress: React.FC<EditAddressProps> = ({
     const payload = {
       first_name: data.first_name,
       last_name: data.last_name,
-      company: data.company || "Personal",
+      company: data.company || 'Personal',
       address_1: data.address_1,
-      address_2: data.address_2 || "",
+      address_2: data.address_2 || '',
       city: data.city,
       country_code: data.country_code,
-      province: data.province || "",
-      postal_code: data.postal_code,
-      phone: data.phone || "None",
+      province: data.province || '',
+      postal_code: data.postal_code || '',
+      phone: data.phone,
       metadata: {},
     }
 
@@ -105,22 +105,18 @@ const EditAddress: React.FC<EditAddressProps> = ({
           }
         )}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col leading-4">
           <Heading className="text-left text-base-semi">
-            {address.first_name} {address.last_name}
+            {address.first_name} {address.last_name} {address.company && <span className="text-small-regular text-gray-700">({address.company})</span>}
           </Heading>
-          {address.company && (
-            <Text className="txt-compact-small text-gray-700">
-              {address.company}
-            </Text>
-          )}
-          <Text className="flex flex-col text-left text-base-regular mt-2">
+          <Text className="flex flex-col text-left text-base-regular mt-2 leading-4">
             <span>
               {address.address_1}
               {address.address_2 && <span>, {address.address_2}</span>}
             </span>
             <span>
-              {address.postal_code}, {address.city}
+              {address.postal_code && address.postal_code+', '}
+              {address.city}
             </span>
             <span>
               {address.province && `${address.province}, `}
@@ -183,7 +179,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               autoComplete="address-line1"
             />
             <Input
-              label="Apartment, suite, etc."
+              label="Local government area"
               {...register("address_2")}
               errors={errors}
               autoComplete="address-line2"
@@ -209,7 +205,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               />
             </div>
             <Input
-              label="Province / State"
+              label="State"
               {...register("province")}
               errors={errors}
               autoComplete="address-level1"
@@ -220,8 +216,11 @@ const EditAddress: React.FC<EditAddressProps> = ({
             />
             <Input
               label="Phone"
-              {...register("phone")}
+              {...register("phone", {
+                  required: "Phone number is required",
+              })}
               errors={errors}
+              required
               autoComplete="phone"
             />
           </div>

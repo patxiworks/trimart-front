@@ -69,30 +69,30 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
       </div>
 
       <div className="overflow-auto no-scrollbar h-[300px]">
-      <div className="flex absolute z-10 justify-center h-[300px] items-center fixed opacity-0">left</div>
-      <div className="flex absolute z-10 flex-end right-8 h-[300px] items-center fixed opacity-0">right</div>
-      <div className="overflow-auto" style={{width: `${previews.length*200}px`}}>
-      <ul className={`grid grid-cols-${previews.length} small:grid-cols-${previews.length} medium:grid-cols-${previews.length} gap-x-6 gap-y-8`}>
-        {previews.map((p) => (
-          <li key={p.id}>
-            <ProductPreview {...p} />
-          </li>
-        ))}
-        {isLoading &&
-          !previews.length &&
-          repeat(8).map((index) => (
-            <li key={index}>
-              <SkeletonProductPreview />
-            </li>
-          ))}
-        {isFetchingNextPage &&
-          repeat(getNumberOfSkeletons(data?.pages)).map((index) => (
-            <li key={index}>
-              <SkeletonProductPreview />
-            </li>
-          ))}
-      </ul>
-      </div>
+        <div className="flex absolute z-10 justify-center h-[300px] items-center fixed opacity-0">left</div>
+        <div className="flex absolute z-10 flex-end right-8 h-[300px] items-center fixed opacity-0">right</div>
+        <div className="overflow-auto" style={{width: `${previews.length*200}px`}}>
+          <ul className={`grid grid-cols-${previews.length} small:grid-cols-${previews.length} medium:grid-cols-${previews.length} gap-x-6 gap-y-8`}>
+            {previews.map((p) => (
+              <li key={p.id}>
+                <ProductPreview {...p} />
+              </li>
+            ))}
+            {isLoading &&
+              !previews.length &&
+              repeat(8).map((index) => (
+                <li key={index}>
+                  <SkeletonProductPreview />
+                </li>
+              ))}
+            {isFetchingNextPage &&
+              repeat(getNumberOfSkeletons(data?.pages)).map((index) => (
+                <li key={index}>
+                  <SkeletonProductPreview />
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
       {/*hasNextPage && (
         <div className="flex items-center justify-center mt-8">
