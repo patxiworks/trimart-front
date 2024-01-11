@@ -52,7 +52,7 @@ const SkeletonCartPage = () => {
               </Table>
             </div>
           </div>
-          <div className="flex flex-col gap-y-8">
+          <div className="flex flex-col gap-y-8 pt-10">
             <SkeletonOrderSummary />
           </div>
         </div>

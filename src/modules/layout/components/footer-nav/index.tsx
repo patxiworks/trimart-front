@@ -130,7 +130,7 @@ const FooterNav = () => {
           {/*<CountrySelect />*/}
         </div>
       </div>
-      <div className="flex flex-col-reverse gap-y-4 justify-center xsmall:items-center xsmall:flex-row xsmall:items-end border-t pt-4">
+      <div className="flex flex-col-reverse gap-y-4 justify-center items-center xsmall:items-center xsmall:flex-row xsmall:items-end border-t pt-4">
         <span className="text-xsmall-regular text-gray-500 text-sm">
           © Copyright 2024 Trimart Supermarket
         </span>

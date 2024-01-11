@@ -1,21 +1,23 @@
 import { Heading, Text } from "@medusajs/ui"
 import UnderlineLink from "@modules/common/components/interactive-link"
+import {
+  text2xlSemi,
+  textBaseRegular,
+} from "@modules/design/custom-classes"
 
 const EmptyCartMessage = () => {
   return (
-    <div className="py-48 flex flex-col justify-center items-start">
-      <Heading
-        level="h1"
-        className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
+    <div className="flex flex-col items-center justify-center bg-primary-light small:border border-primary-deep rounded px-8 py-24">
+      <Text className={`${text2xlSemi} text-center`}>
+        Your trolley is empty!
+      </Text>
+      <Text
+        className={`${textBaseRegular} mb-6 mt-4 max-w-[32rem] text-center`}
       >
-        Cart
-      </Heading>
-      <Text className="text-base-regular mt-4 mb-6 max-w-[32rem]">
-        You don&apos;t have anything in your bag. Let&apos;s change that, use
-        the link below to start browsing our products.
+        You don&apos;t have anything in your trolley. Why not add something...
       </Text>
       <div>
-        <UnderlineLink href="/store">Explore products</UnderlineLink>
+        <UnderlineLink href="/store">Explore our products</UnderlineLink>
       </div>
     </div>
   )

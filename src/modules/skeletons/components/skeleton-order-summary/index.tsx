@@ -4,7 +4,7 @@ import SkeletonCodeForm from "../skeleton-code-form"
 
 const SkeletonOrderSummary = () => {
   return (
-    <div className="border small:p-6 grid-cols-1">
+    <div className="border p-2 small:p-6 grid-cols-1">
       <SkeletonCodeForm />
       <div className="mt-4">
         <SkeletonCartTotals header={false} />
