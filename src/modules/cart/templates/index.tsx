@@ -20,6 +20,7 @@ const CartTemplate = () => {
 
   const [params, setParams] = useState<StoreGetProductsParams>({})
 
+  console.log(cart, cart?.id.length, isLoading)
   if (!cart || !cart?.id?.length || isLoading) {
     return <SkeletonCartPage />
   }
