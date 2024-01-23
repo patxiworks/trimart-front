@@ -15,17 +15,17 @@ const sortOptions = [
   {
     value: "created_at",
     label: "Sort by date",
-    icon: <CalendarMini />
+    //icon: <CalendarMini />
   },
   {
     value: "price_asc",
     label: "Sort by price (ascending)",
-    icon: <ArrowUpMini />
+    //icon: <ArrowUpMini />
   },
   {
     value: "price_desc",
     label: "Sort by price (decending)",
-    icon: <ArrowDownMini />
+    //icon: <ArrowDownMini />
   },
 ]
 
@@ -38,7 +38,7 @@ const RefinementList = ({
 }: RefinementListProps) => {
   return (
     <div className="flex small:flex-col gap-12 px-8 pr-4 py-4 small:pr-0 small:pl-8 small:mx-4">
-      {/*<SortProducts title="Sort:" options={sortOptions} sortBy={sortBy} setSortBy={setSortBy} />*/}
+      <SortProducts title="Sort:" options={sortOptions} sortBy={sortBy} setSortBy={setSortBy} />
       {/*!search && (
         <CollectionFilter
           refinementList={refinementList}
