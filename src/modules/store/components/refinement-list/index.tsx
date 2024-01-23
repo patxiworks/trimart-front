@@ -1,6 +1,7 @@
 import { StoreGetProductsParams } from "@medusajs/medusa"
 import SortProducts, { SortOptions } from "./sort-products"
 import CollectionFilter from "./collection-filter"
+import { ArrowUpMini, ArrowDownMini, CalendarMini } from "@medusajs/icons"
 
 type RefinementListProps = {
   refinementList: StoreGetProductsParams
@@ -10,6 +11,24 @@ type RefinementListProps = {
   search?: boolean
 }
 
+const sortOptions = [
+  {
+    value: "created_at",
+    label: "Sort by date",
+    icon: <CalendarMini />
+  },
+  {
+    value: "price_asc",
+    label: "Sort by price (ascending)",
+    icon: <ArrowUpMini />
+  },
+  {
+    value: "price_desc",
+    label: "Sort by price (decending)",
+    icon: <ArrowDownMini />
+  },
+]
+
 const RefinementList = ({
   refinementList,
   setRefinementList,
@@ -18,14 +37,15 @@ const RefinementList = ({
   search = false,
 }: RefinementListProps) => {
   return (
-    <div className="flex small:flex-col gap-12 px-8 py-4 mb-8 small:pr-0 small:pl-8 small:min-w-[250px] small:ml-[1.675rem]">
-      <SortProducts sortBy={sortBy} setSortBy={setSortBy} />
-      {!search && (
+    <div className="flex small:flex-col gap-12 px-8 pr-4 py-4 small:pr-0 small:pl-8 small:mx-4">
+      <SortProducts title="Sort:" options={sortOptions} sortBy={sortBy} setSortBy={setSortBy} />
+      {/*<SortProducts title="Price" options={priceSortOptions} sortBy={sortByPrice} setSortBy={setSortBy} />*/}
+      {/*!search && (
         <CollectionFilter
           refinementList={refinementList}
           setRefinementList={setRefinementList}
         />
-      )}
+      )*/}
     </div>
   )
 }

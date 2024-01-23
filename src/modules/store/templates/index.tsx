@@ -14,7 +14,7 @@ const StoreTemplate = () => {
   return (
     <div>
       <RefinementNav refinementList={params} setRefinementList={setParams} />
-      <div className="flex flex-col small:flex-row small:items-start py-6">
+      <div className="flex flex-col items-end py-2">
         <RefinementList
           refinementList={params}
           setRefinementList={setParams}

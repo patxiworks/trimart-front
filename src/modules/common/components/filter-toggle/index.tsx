@@ -1,35 +1,36 @@
+import { FC } from "react"
 import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
 import { EllipseMiniSolid } from "@medusajs/icons"
 import { ChangeEvent } from "react"
+import { ArrowUpMini, ArrowDownMini } from "@medusajs/icons"
 
-type FilterRadioGroupProps = {
+type FilterToggleProps = {
   title: string
   items: {
     value: string
     label: string
+    icon: FC
   }[]
   value: any
   handleChange: (...args: any[]) => void
 }
 
-const FilterRadioGroup = ({
+const FilterToggle = ({
   title,
   items,
   value,
   handleChange,
-}: FilterRadioGroupProps) => {
+}: FilterToggleProps) => {
   return (
-    <div className="flex gap-x-3 flex-row gap-y-3">
+    <div className="flex gap-x-3 flex-row gap-x-3">
       <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
       <RadioGroup>
+        <div className="flex flex-row gap-3">
         {items?.map((i) => (
           <div
             key={i.value}
-            className={clx("flex gap-x-2 items-center", {
-              "ml-[-1.75rem]": i.value === value,
-            })}
+            className={clx("flex gap-x-2 items-start")}
           >
-            {i.value === value && <EllipseMiniSolid className="hidden" />}
             <RadioGroup.Item
               checked={i.value === value}
               onClick={(e) =>
@@ -44,6 +45,7 @@ const FilterRadioGroup = ({
             />
             <Label
               htmlFor={i.value}
+              title={i.label}
               className={clx(
                 "text-ui-fg-subtle txt-compact-small-plus hover:cursor-pointer",
                 {
@@ -51,13 +53,14 @@ const FilterRadioGroup = ({
                 }
               )}
             >
-              {i.label}
+              {i.icon}
             </Label>
           </div>
         ))}
+        </div>
       </RadioGroup>
     </div>
   )
 }
 
-export default FilterRadioGroup
+export default FilterToggle
