@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import usePreviews from "@lib/hooks/use-previews"
 import getNumberOfSkeletons from "@lib/util/get-number-of-skeletons"
 import repeat from "@lib/util/repeat"
@@ -21,7 +20,6 @@ type RelatedProductsProps = {
 }
 
 const RelatedProducts = ({ product }: RelatedProductsProps) => {
-  const [itemCount, setItemCount] = useState(6)
   const { cart } = useCart()
 
   const queryParams: StoreGetProductsParams = useMemo(() => {
@@ -58,11 +56,6 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     )
 
   const previews = usePreviews({ pages: data?.pages, region: cart?.region })
-  
-  useEffect(() => {
-    setItemCount(previews.length)
-    console.log(previews, itemCount)
-  }, [previews])
 
   return (
     <div className="product-page-constraint">
@@ -78,8 +71,8 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
       <div className="overflow-auto no-scrollbar h-[300px]">
         <div className="flex absolute z-10 justify-center h-[300px] items-center fixed opacity-0">left</div>
         <div className="flex absolute z-10 flex-end right-8 h-[300px] items-center fixed opacity-0">right</div>
-        <div className="overflow-auto" style={{width: `${itemCount*200}px`}}>
-          <ul className={`grid grid-cols-${itemCount} small:grid-cols-${itemCount} medium:grid-cols-${itemCount} gap-x-6 gap-y-8`}>
+        <div className="overflow-auto" style={{width: `${previews.length*200}px`}}>
+          <ul className={`grid grid-cols-${previews.length} small:grid-cols-${previews.length} medium:grid-cols-${previews.length} gap-x-6 gap-y-8`}>
             {previews.map((p) => (
               <li key={p.id}>
                 <ProductPreview {...p} />
