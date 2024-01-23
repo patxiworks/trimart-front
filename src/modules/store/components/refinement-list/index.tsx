@@ -15,17 +15,17 @@ const sortOptions = [
   {
     value: "created_at",
     label: "Sort by date",
-    //icon: <CalendarMini />
+    icon: <CalendarMini />
   },
   {
     value: "price_asc",
     label: "Sort by price (ascending)",
-    //icon: <ArrowUpMini />
+    icon: <ArrowUpMini />
   },
   {
     value: "price_desc",
     label: "Sort by price (decending)",
-    //icon: <ArrowDownMini />
+    icon: <ArrowDownMini />
   },
 ]
 
