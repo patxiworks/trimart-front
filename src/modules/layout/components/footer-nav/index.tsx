@@ -118,7 +118,7 @@ const FooterNav = () => {
             >
               {collections?.map((c) => (
                 <li key={c.id} className="hover:text-primary-deep">
-                  <Link href={`/#/collections/${c.id}`}>
+                  <Link href={`#`}>
                     {c.title}
                   </Link>
                 </li>
