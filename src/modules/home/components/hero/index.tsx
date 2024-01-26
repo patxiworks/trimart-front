@@ -14,7 +14,7 @@ const Hero = () => {
         className="h-full w-full object-cover"
         fill={true}
       />
-      <div className="small:justify-start small:items-center medium:p-32 absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-0 small:mt-40">
+      <div className="small:justify-start small:items-center medium:p-32 absolute small:inset-0 z-10 flex flex-col items-center justify-center text-center p-0 small:mt-40">
         <div className="ios:p-2 bg-black opacity-80 p-6 pl-4 text-center">
           <div
             className={`${text2xlSemi} leading-[32px] text-center font-bold mb-4 text-white shadow-black drop-shadow-md`}
