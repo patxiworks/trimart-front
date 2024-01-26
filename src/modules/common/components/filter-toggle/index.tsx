@@ -47,7 +47,7 @@ const FilterToggle = ({
               htmlFor={i.value}
               title={i.label}
               className={clx(
-                "text-ui-fg-subtle txt-compact-small-plus hover:cursor-pointer",
+                "text-gray-300 txt-compact-small-plus hover:cursor-pointer",
                 {
                   "text-ui-fg-base": i.value === value,
                 }

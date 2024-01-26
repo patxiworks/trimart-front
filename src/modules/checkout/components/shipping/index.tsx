@@ -11,6 +11,7 @@ import { formatAmount, useCart, useCartShippingOptions } from "medusa-react"
 import { useEffect, useMemo, useState } from "react"
 import { Cart } from "@medusajs/medusa"
 import { textXlSemi } from '@modules/design/custom-classes'
+import { setCurrency } from "@lib/util/currency-sign"
 
 type ShippingOption = {
   value?: string
@@ -168,7 +169,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
                         </span>
                       </div>
                       <span className="justify-self-end text-gray-700">
-                        {option.price}
+                        {setCurrency(option.price)}
                       </span>
                     </RadioGroup.Option>
                   )

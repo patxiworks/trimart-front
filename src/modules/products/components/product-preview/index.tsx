@@ -5,6 +5,7 @@ import Thumbnail from "../thumbnail"
 import { Text } from "@medusajs/ui"
 import { ProductProvider } from '@lib/context/product-context'
 //import ProductButton from './button'
+import { setCurrency } from "@lib/util/currency-sign"
 import Button from '@modules/common/components/button'
 import { useRouter } from 'next/navigation'
 
@@ -35,7 +36,7 @@ const ProductPreview = ({
               <>
                 {price.price_type === "sale" && (
                   <Text className="line-through text-ui-fg-muted">
-                    {price.original_price}
+                    {setCurrency(price.original_price)}
                   </Text>
                 )}
                 <Text
@@ -43,7 +44,7 @@ const ProductPreview = ({
                     "text-ui-fg-interactive": price.price_type === "sale",
                   })}
                 >
-                  {price.calculated_price}
+                  {setCurrency(price.calculated_price)}
                 </Text>
               </>
             ) : (

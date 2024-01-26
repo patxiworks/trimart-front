@@ -3,6 +3,7 @@ import { LineItem, Region } from "@medusajs/medusa"
 import clsx from "clsx"
 import { formatAmount } from "medusa-react"
 import { CalculatedVariant } from "types/medusa"
+import { setCurrency } from "@lib/util/currency-sign"
 
 type LineItemPriceProps = {
   item: Omit<LineItem, "beforeInsert">
@@ -29,11 +30,11 @@ const LineItemPrice = ({
                 <span className="text-ui-fg-subtle">Original: </span>
               )}
               <span className="line-through text-ui-fg-muted">
-                {formatAmount({
+                {setCurrency(formatAmount({
                   amount: originalPrice,
                   region: region,
                   includeTaxes: false,
-                })}
+                }))}
               </span>
             </p>
             {style === "default" && (
@@ -48,11 +49,11 @@ const LineItemPrice = ({
             "text-ui-fg-interactive": hasReducedPrice,
           })}
         >
-          {formatAmount({
+          {setCurrency(formatAmount({
             amount: item.total || 0,
             region: region,
             includeTaxes: false,
-          })}
+          }))}
         </span>
       </div>
     </div>

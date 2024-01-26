@@ -25,7 +25,7 @@ interface LineInfoProps {
 
 interface StoreContext {
   countryCode: string | undefined
-  setRegion: (regionId: string, countryCode: string) => void
+  setRegion: (regionId: string, countryCode: string, fromStoreFront?: boolean) => void
   addItem: (item: VariantInfoProps) => void
   updateItem: (item: LineInfoProps) => void
   deleteItem: (lineId: string) => void
@@ -100,7 +100,8 @@ export const StoreProvider = ({ children }: StoreProps) => {
     return null
   }
 
-  const setRegion = async (regionId: string, countryCode: string) => {
+  const setRegion = async (regionId: string, countryCode: string, fromStoreFront: boolean = false) => {
+    const country = fromStoreFront ? countryCode : "ng"
     await updateCart.mutateAsync(
       {
         region_id: regionId,
@@ -110,6 +111,7 @@ export const StoreProvider = ({ children }: StoreProps) => {
           setCart(cart)
           storeCart(cart.id)
           storeRegion(regionId, countryCode)
+          //storeRegion(regionId, country)
         },
         onError: (error) => {
           if (process.env.NODE_ENV === "development") {

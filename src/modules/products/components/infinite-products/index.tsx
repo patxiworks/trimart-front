@@ -41,8 +41,6 @@ const InfiniteProducts = ({ params, sortBy }: InfiniteProductsType) => {
     }
   }, [cart?.id, cart?.region, params])
 
-  console.log(queryParams)
-
   const { data, hasNextPage, fetchNextPage, isLoading, isFetchingNextPage } =
     useInfiniteQuery(
       [`infinite-products-store`, queryParams, cart],
@@ -57,8 +55,6 @@ const InfiniteProducts = ({ params, sortBy }: InfiniteProductsType) => {
     region: cart?.region,
     sortBy,
   })
-
-  console.log(data, hasNextPage)
 
   useEffect(() => {
     if (inView && hasNextPage) {

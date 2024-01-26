@@ -5,6 +5,8 @@ import { useCollections, useProductCategories } from "medusa-react"
 import { Text } from "@medusajs/ui"
 import Link from "next/link"
 import MedusaCTA from "../medusa-cta"
+import useToggleState from "@lib/hooks/use-toggle-state"
+import CountrySelect from "../country-select"
 
 const CategoriesNav = () => {
   const { product_categories } = useProductCategories()
@@ -64,6 +66,7 @@ const CategoriesNav = () => {
 
 const FooterNav = () => {
   const { collections } = useCollections()
+  const toggleState = useToggleState()
 
   return (
     <div className="flex flex-col gap-y-8 pt-12 pb-8 px-6 border-t border-gray-300">
@@ -127,7 +130,7 @@ const FooterNav = () => {
         </div>
         </div>
         <div className="text-sm">
-          {/*<CountrySelect />*/}
+          <CountrySelect toggleState={toggleState} />
         </div>
       </div>
       <div className="flex flex-col-reverse gap-y-4 justify-center items-center xsmall:items-center xsmall:flex-row xsmall:items-end border-t pt-4">

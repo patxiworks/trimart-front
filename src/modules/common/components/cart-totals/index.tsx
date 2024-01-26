@@ -2,6 +2,7 @@ import { Cart, Order } from "@medusajs/medusa"
 import { Tooltip } from "@medusajs/ui"
 import { InformationCircleSolid } from "@medusajs/icons"
 import { formatAmount } from "medusa-react"
+import { setCurrency } from "@lib/util/currency-sign"
 import React from "react"
 
 type CartTotalsProps = {
@@ -19,11 +20,11 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
   } = data
 
   const getAmount = (amount: number | null | undefined) => {
-    return formatAmount({
+    return setCurrency(formatAmount({
       amount: amount || 0,
       region: data.region,
       includeTaxes: false,
-    })
+    }))
   }
 
   return (

@@ -5,6 +5,7 @@ import {
 import useProductPrice from "@lib/hooks/use-product-price"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { Button } from "@medusajs/ui"
+import { setCurrency } from "@lib/util/currency-sign"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/option-select"
 import clsx from "clsx"
@@ -25,6 +26,10 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
 
     return variantPrice || cheapestPrice || null
   }, [price])
+
+  const editedPrice = (calc_price: any) => {
+    return calc_price ? setCurrency(calc_price) : calc_price
+  }
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -55,14 +60,14 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
               "text-ui-fg-interactive": selectedPrice.price_type === "sale",
             })}
           >
-            {selectedPrice.calculated_price}
+            {editedPrice(selectedPrice.calculated_price)}
           </span>
           {selectedPrice.price_type === "sale" && (
             <>
               <p>
                 <span className="text-ui-fg-subtle">Original: </span>
                 <span className="line-through">
-                  {selectedPrice.original_price}
+                {editedPrice(selectedPrice.original_price)}
                 </span>
               </p>
               <span className="text-ui-fg-interactive">

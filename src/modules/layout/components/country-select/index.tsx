@@ -46,12 +46,12 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
 
   const handleChange = (option: CountryOption) => {
     revalidateTags(["medusa_request", "products", "collections"])
-    setRegion(option.region, option.country)
+    setRegion(option.region, option.country, true)
     close()
   }
-
+  
   return (
-    <div>
+    <div onMouseEnter={open} onMouseLeave={close}>
       <Listbox
         onChange={handleChange}
         defaultValue={
@@ -61,8 +61,8 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
         }
       >
         <Listbox.Button className="py-1 w-full">
-          <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Shipping to:</span>
+          <div className="txt-compact-small flex justify-end items-end gap-x-2">
+            <span>Country:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
                 <ReactCountryFlag
@@ -78,7 +78,7 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
             )}
           </div>
         </Listbox.Button>
-        <div className="flex relative w-full min-w-[320px]">
+        <div className="flex relative w-full min-w-[200px]">
           <Transition
             show={state}
             as={Fragment}
