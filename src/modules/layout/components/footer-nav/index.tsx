@@ -70,7 +70,7 @@ const FooterNav = () => {
 
   return (
     <div className="flex flex-col gap-y-8 pt-12 pb-8 px-6 border-t border-gray-300">
-      <div className="flex gap-y-6 xsmall:flex-row flex-col items-start gap-8 xsmall:justify-between">
+      <div className="flex gap-y-6 xsmall:flex-row flex-col gap-8 xsmall:justify-between">
         <div>
         <div>
           {/*<Link href="/" className="text-xl-semi uppercase">Trimart</Link>*/}

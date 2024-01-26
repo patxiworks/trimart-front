@@ -30,7 +30,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
 
   return (
     <>
-      <div
+      {/*<div
         className={clsx("lg:hidden sticky inset-x-0 bottom-0", {
           "pointer-events-none": !show,
         })}
@@ -88,7 +88,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
             </div>
           </div>
         </Transition>
-      </div>
+      </div>*/}
       <Transition appear show={state} as={Fragment}>
         <Dialog as="div" className="relative z-[75]" onClose={close}>
           <Transition.Child
