@@ -33,6 +33,7 @@ interface StoreContext {
 }
 
 const StoreContext = React.createContext<StoreContext | null>(null)
+const defaultRegion = "reg_01HDK9ZM5HVW32KMRPXSESQYPF" // ngn
 
 export const useStore = () => {
   const context = React.useContext(StoreContext)
@@ -211,7 +212,7 @@ export const StoreProvider = ({ children }: StoreProps) => {
     const ensureCart = async () => {
       const cartId = onboardingCartId || getCart()
       const region = getRegion()
-
+    
       if (cartId) {
         const cartRes = await medusaClient.carts
           .retrieve(cartId)
@@ -232,7 +233,9 @@ export const StoreProvider = ({ children }: StoreProps) => {
         setCart(cartRes)
         ensureRegion(cartRes.region)
       } else {
-        await createNewCart(region?.regionId)
+        console.log(region?.regionId)
+        //await createNewCart(region?.regionId)
+        await createNewCart(defaultRegion)
       }
     }
 

@@ -2,7 +2,7 @@
 import { ArrowUpRightMini } from "@medusajs/icons"
 import clsx from 'clsx'
 import Link from 'next/link'
-import { textBaseRegular } from '@modules/design/custom-classes'
+import { textLargeSemi } from '@modules/design/custom-classes'
 
 type UnderlineLinkProps = {
   href: string
@@ -22,7 +22,7 @@ const UnderlineLink = ({
       <div
         className={`group flex flex-row items-center gap-x-4 border-${border} border-current border-${color} py-2 transition-all duration-300 hover:pl-4 hover:pr-1`}
       >
-        <div className={`${textBaseRegular} div-${color}`}>{children}</div>
+        <div className={`${textLargeSemi} div-${color}`}>{children}</div>
         <ArrowUpRightMini
             className="group-hover:rotate-45 ease-in-out duration-150"
             color="white"
