@@ -11,6 +11,7 @@ import Thumbnail from "@modules/products/components/thumbnail"
 import { formatAmount, useCart } from "medusa-react"
 import Link from "next/link"
 import { Fragment } from "react"
+import { textBaseRegular } from "@modules/design/custom-classes"
 
 const CartDropdown = () => {
   const { cart, totalItems } = useCart()
@@ -19,7 +20,7 @@ const CartDropdown = () => {
   const { state, open, close } = useCartDropdown()
 
   return (
-    <div className="z-50" onMouseEnter={open} onMouseLeave={close}>
+    <div className="z-50" /*onMouseEnter={open} onMouseLeave={close}*/>
       <Link
         className="hover:text-primary-normal"
         href="/cart"
@@ -31,7 +32,7 @@ const CartDropdown = () => {
             <div className="flex w-[25px] h-[25px] border rounded-full bg-white items-center justify-center text-xs text-black font-bold text-primary-deep">{`${totalItems}`}</div></div>
         </div>
       </Link>
-      {/*<Popover className="relative h-full">
+      <Popover className="relative h-[1px]">
         <Popover.Button className="h-full">
         
         </Popover.Button>
@@ -47,9 +48,14 @@ const CartDropdown = () => {
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[382px] text-gray-900"
+            className="block absolute top-[calc(100%+1px)] -right-3 bg-white border-x border-b border-primary-deeper rounded-sm shadow-md max-w-[382px] min-w-[200px] text-gray-900"
           >
-            <div className="p-4 flex items-center justify-center">
+            <div>
+              <div className={`flex p-2 flex-col gap-y-4 items-center justify-center`}>
+                Item added to cart &#9757;&#127997;
+              </div>
+            </div>
+            {/*<div className="p-4 flex items-center justify-center">
               <h3 className="text-large-semi">Cart</h3>
             </div>
             {cart && items?.length ? (
@@ -147,10 +153,10 @@ const CartDropdown = () => {
                   </div>
                 </div>
               </div>
-            )}
+            )}*/}
           </Popover.Panel>
         </Transition>
-      </Popover>*/}
+      </Popover>
     </div>
   )
 }
