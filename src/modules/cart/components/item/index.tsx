@@ -22,7 +22,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
 
   return (
     <Table.Row className="even:bg-white odd:bg-slate-50 border-b-primary-normals w-full [&_td:last-child]:pr-3 [&_td:first-child]:pl-3 small:[&_td:last-child]:pr-6 small:[&_td:first-child]:pl-6 hover:bg-primary-light">
-      <Table.Cell className="small:pl-2 p-4 w-24">
+      <Table.Cell className="small:pl-2 p-4 small:w-24 w-20">
         <Link
           href={`/products/${handle}`}
           className={clx("flex", {
