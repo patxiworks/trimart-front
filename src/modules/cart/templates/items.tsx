@@ -3,6 +3,7 @@ import { Heading, Table } from "@medusajs/ui"
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 import { textXlSemi } from '@modules/design/custom-classes'
+import Cart from "@modules/common/icons/cart"
 
 type ItemsTemplateProps = {
   items?: Omit<LineItem, "beforeInsert">[]
@@ -13,7 +14,10 @@ const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
     <>
     <div className="flex justify-center items-center py-6">
-      <Heading className={`${textXlSemi}`}>Cart</Heading>
+      <Heading className={`${textXlSemi} flex flex-row gap-3 text-primary-deeper`}>
+        <Cart size={35} />
+        <span>Your trolley</span>
+      </Heading>
     </div>
     <div className="py-6 border-t border-primary-normal">
       <Table className="">
