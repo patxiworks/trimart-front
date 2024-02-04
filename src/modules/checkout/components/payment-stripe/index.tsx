@@ -14,8 +14,7 @@ import { FieldValues, UseFormReturn } from "react-hook-form"
 import { CheckCircleMiniSolid } from "@medusajs/icons"
 
 type PaymentStripeProps = StateProps & {
-  //useFormState: UseFormReturn<FieldValues, any, undefined>
-  useFormState: UseFormReturn<FieldValues, any>
+  useFormState: UseFormReturn<FieldValues, any, undefined>
 }
 
 type StateProps = {
