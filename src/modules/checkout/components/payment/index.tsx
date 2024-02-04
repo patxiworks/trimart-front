@@ -179,7 +179,7 @@ const Payment = () => {
                 )
               }}
             />
-            {cart.payment_session?.provider_id === "stripe" && (
+            {/*cart.payment_session?.provider_id === "stripe" && (
               <div className="pt-8">
                 <PaymentStripe
                   useFormState={useFormState}
@@ -187,7 +187,7 @@ const Payment = () => {
                   state={cardFormState}
                 />
               </div>
-            )}
+            )*/}
             <Button
               onClick={handleSubmit}
               type="submit"
