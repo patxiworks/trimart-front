@@ -25,7 +25,7 @@ const Accordion: React.FC<
   Item: React.FC<AccordionItemProps>
 } = ({ children, ...props }) => {
   return (
-    <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
+    <><AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root></>
   )
 }
 
@@ -61,7 +61,7 @@ const Item: React.FC<AccordionItemProps> = ({
             </AccordionPrimitive.Trigger>
           </div>
           {subtitle && (
-            <Text as="span" size="small" className="mt-1">
+            <Text as="span" className="mt-1">
               {subtitle}
             </Text>
           )}
