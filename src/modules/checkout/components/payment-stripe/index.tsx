@@ -14,7 +14,7 @@ import { FieldValues, UseFormReturn } from "react-hook-form"
 import { CheckCircleMiniSolid } from "@medusajs/icons"
 
 type PaymentStripeProps = StateProps & {
-  useFormState: UseFormReturn<FieldValues, any, undefined>
+  useFormState: UseFormReturn<FieldValues, any>
 }
 
 type StateProps = {
@@ -83,7 +83,7 @@ const CardNumber = ({
   state,
   setState,
 }: {
-  useFormState: UseFormReturn<FieldValues, any, undefined>
+  useFormState: UseFormReturn<FieldValues, any>
   options: StripeCardNumberElementOptions
   state: StateProps["state"]
   setState: StateProps["setState"]
@@ -138,7 +138,7 @@ const CardExpiry = ({
   state,
   setState,
 }: {
-  useFormState: UseFormReturn<FieldValues, any, undefined>
+  useFormState: UseFormReturn<FieldValues, any>
   options: StripeCardExpiryElementOptions
   state: StateProps["state"]
   setState: StateProps["setState"]
@@ -193,7 +193,7 @@ const CardCVC = ({
   state,
   setState,
 }: {
-  useFormState: UseFormReturn<FieldValues, any, undefined>
+  useFormState: UseFormReturn<FieldValues, any>
   options: StripeCardCvcElementOptions
   state: StateProps["state"]
   setState: StateProps["setState"]
