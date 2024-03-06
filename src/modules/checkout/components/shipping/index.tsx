@@ -73,7 +73,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
           close()
           openPayment()
         },
-        onError: () =>
+        onError: (e) =>
           setError(
             "soId",
             {
@@ -211,10 +211,10 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
                 </Text>*/}
                 <Text className="txt-medium text-ui-fg-subtle">
                   {cart.shipping_methods[0].shipping_option.name} (
-                  {formatAmount({
+                  {setCurrency(formatAmount({
                     amount: cart.shipping_methods[0].price,
                     region: cart.region,
-                  })
+                  }))
                     .replace(/,/g, "")
                     .replace(/\./g, ",")}
                   )

@@ -52,7 +52,8 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
                 >
                   <InformationCircleSolid color="var(--fg-muted)" />
                 </Tooltip>
-              )}
+              )
+            }
 
             {paymentSession.provider_id === "manual" && isDevelopment && (
               <PaymentTest className="hidden small:block" />

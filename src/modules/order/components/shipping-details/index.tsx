@@ -2,6 +2,7 @@ import { Order } from "@medusajs/medusa"
 import { Heading, Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import { formatAmount } from "medusa-react"
+import { setCurrency } from "@lib/util/currency-sign"
 
 type ShippingDetailsProps = {
   order: Order
@@ -46,13 +47,13 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           <Text className="txt-medium-plus text-ui-fg-base mb-1">Method</Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {order.shipping_methods[0].shipping_option.name} (
-            {formatAmount({
+            {setCurrency(formatAmount({
               amount: order.shipping_methods[0].price,
               region: order.region,
+            }))
+              //.replace(/,/g, "")
+              //.replace(/\./g, ",")
             })
-              .replace(/,/g, "")
-              .replace(/\./g, ",")}
-            )
           </Text>
         </div>
       </div>

@@ -36,6 +36,10 @@ export const paymentInfoMap: Record<
     title: "Test payment",
     icon: <CreditCard />,
   },
+  paystack: {
+    title: 'Paystack',
+    icon: <CreditCard />,
+  },
   // Add more payment providers here
 }
 
