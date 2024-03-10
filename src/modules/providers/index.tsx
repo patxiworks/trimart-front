@@ -10,6 +10,7 @@ import { Suspense } from "react"
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
+    /* @ts-expect-error */
     <MedusaProvider
       baseUrl={MEDUSA_BACKEND_URL}
       queryClientProviderProps={{
