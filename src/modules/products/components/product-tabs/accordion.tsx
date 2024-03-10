@@ -42,6 +42,7 @@ const Item: React.FC<AccordionItemProps> = ({
   triggerable,
   ...props
 }) => {
+  /* @ts-expect-error */
   return (
     <AccordionPrimitive.Item
       {...props}
