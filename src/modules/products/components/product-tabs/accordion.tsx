@@ -25,7 +25,8 @@ const Accordion: React.FC<
   Item: React.FC<AccordionItemProps>
 } = ({ children, ...props }) => {
   return (
-    <><AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root></>
+    /* @ts-expect-error */
+    <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
   )
 }
 
