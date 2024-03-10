@@ -8422,6 +8422,7 @@ __metadata:
     "@meilisearch/instant-meilisearch": "npm:^0.7.1"
     "@paypal/paypal-js": "npm:^5.1.6"
     "@paypal/react-paypal-js": "npm:^7.8.3"
+    "@radix-ui/react-accordion": "npm:^1.1.2"
     "@stripe/react-stripe-js": "npm:^1.16.5"
     "@stripe/stripe-js": "npm:^1.54.2"
     "@tanstack/react-query": "npm:^4.36.1"
